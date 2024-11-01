@@ -1,0 +1,11 @@
+# Owner for the entire repository
+* @arist0v
+
+# Owner for a specific directory
+# /path/to/directory/ @username
+
+# Owner for a specific file
+# /path/to/file.txt @username
+
+# Wildcard example: Owner for all JavaScript files in a directory
+# /src/**/*.js @teamname
