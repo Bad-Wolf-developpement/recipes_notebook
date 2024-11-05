@@ -8,11 +8,6 @@
                     "compose"
                 ]
             },
-            "ios": {
-                "ui": [
-                    "compose"
-                ]
-            },
             "desktop": {
                 "ui": [
                     "compose"
@@ -22,13 +17,8 @@
                 "ui": [
                     "compose"
                 ]
-            },
-            "server": {
-                "engine": [
-                    "ktor"
-                ]
             }
         }
     },
-    "timestamp": "2024-11-01T16:07:37.150009837Z"
+    "timestamp": "2024-11-04T13:18:11.433747488Z"
 }

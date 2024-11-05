@@ -1,4 +1,4 @@
-rootProject.name = "recipes_notebook"
+rootProject.name = "RecipesNotebook"
 enableFeaturePreview("TYPESAFE_PROJECT_ACCESSORS")
 
 pluginManagement {
@@ -29,5 +29,3 @@ dependencyResolutionManagement {
 }
 
 include(":composeApp")
-include(":server")
-include(":shared")
