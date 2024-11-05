@@ -10,9 +10,9 @@ fun main() = application {
     Window(
         state = state,
         onCloseRequest = ::exitApplication,
+
         title = "recipes_notebook", // TODO change this to res strings
         //icon = Painter?, TODO Add icon to the windows
-
     ) {
         App()
     }
