@@ -63,7 +63,7 @@ fun TopAppBar(
             ) {
                 Text(title)
             }
-        }, // TODO change this to string res
+        },
         actions = {
             IconButton(
                 onClick = { /* TODO */ }

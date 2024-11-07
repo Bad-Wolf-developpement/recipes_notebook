@@ -22,8 +22,10 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.platform.LocalDensity
 import androidx.compose.ui.unit.dp
 import org.jetbrains.compose.resources.painterResource
+import org.jetbrains.compose.resources.stringResource
 import org.jetbrains.compose.ui.tooling.preview.Preview
 import recipesnotebook.composeapp.generated.resources.Res
+import recipesnotebook.composeapp.generated.resources.app_name
 import recipesnotebook.composeapp.generated.resources.compose_multiplatform
 import studio.badwolfdev.recipes_notebook.presentation.TopAppBar
 
@@ -43,7 +45,9 @@ fun App() {
             TopAppBar(
                 scope = scope,
                 drawerState = drawerState,
-                title = "Recipes Notebook",
+                title = stringResource(
+                    Res.string.app_name
+                ),
             )
             ModalNavigationDrawer(
                 gesturesEnabled = false,
