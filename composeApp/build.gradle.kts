@@ -46,11 +46,12 @@ kotlin {
         
         androidMain.dependencies {
 
-            implementation(libs.androidx.material3.android)
             implementation(compose.preview)
             implementation(libs.androidx.activity.compose)
         }
         commonMain.dependencies {
+            implementation(compose.material3)
+            implementation(compose.ui)
             implementation(compose.runtime)
             implementation(compose.foundation)
             implementation(compose.material)
@@ -62,7 +63,6 @@ kotlin {
         }
         desktopMain.dependencies {
 
-            implementation(libs.androidx.material3.desktop)
             implementation(compose.desktop.currentOs)
             implementation(libs.kotlinx.coroutines.swing)
         }
@@ -97,8 +97,6 @@ android {
 }
 
 dependencies {
-    implementation(libs.androidx.material3.desktop)
-    implementation(libs.androidx.material3.android)
     debugImplementation(compose.uiTooling)
 }
 
