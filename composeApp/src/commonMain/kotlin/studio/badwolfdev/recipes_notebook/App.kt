@@ -43,8 +43,8 @@ fun App() {
 
         Column() {
             TopAppBar(
-                scope = scope,
-                drawerState = drawerState,
+                //scope = scope,
+                //drawerState = drawerState,
                 title = stringResource(
                     Res.string.app_name
                 ),
@@ -65,7 +65,6 @@ fun App() {
                 },
             ) {
                 Content()
-
 
             }
         }
