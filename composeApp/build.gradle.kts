@@ -4,6 +4,21 @@ import org.jetbrains.kotlin.gradle.ExperimentalWasmDsl
 import org.jetbrains.kotlin.gradle.dsl.JvmTarget
 import org.jetbrains.kotlin.gradle.targets.js.webpack.KotlinWebpackConfig
 
+private val MAJOR = 0
+private val MINOR = 0
+private val PATCH = 1
+private val SUFFIX = ""
+
+private val appVersion: String
+    get(){
+        var semver = "${MAJOR}.${MINOR}.${PATCH}"
+        if (SUFFIX != ""){
+            semver += "-${SUFFIX}"
+        }
+        return semver
+    }
+
+
 plugins {
     alias(libs.plugins.kotlinMultiplatform)
     alias(libs.plugins.androidApplication)
@@ -78,7 +93,7 @@ android {
         minSdk = libs.versions.android.minSdk.get().toInt()
         targetSdk = libs.versions.android.targetSdk.get().toInt()
         versionCode = 1
-        versionName = "1.0"
+        versionName = appVersion
     }
     packaging {
         resources {
@@ -111,5 +126,13 @@ compose.desktop {
             packageName = "studio.badwolfdev.recipes_notebook"
             packageVersion = "1.0.0"
         }
+    }
+}
+
+tasks.withType<Jar> {
+    manifest {
+        attributes(
+            "Implementation-Version" to appVersion  // Add version to the MANIFEST.MF
+        )
     }
 }

@@ -1,5 +1,6 @@
 package studio.badwolfdev.recipes_notebook.screens
 
+import androidx.compose.material3.Scaffold
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
@@ -9,14 +10,16 @@ import studio.badwolfdev.recipes_notebook.screens.main.MainScreen
 
 @Composable
 actual fun AppScaffold() {
-    val currentScreen by remember { mutableStateOf(Screens.MAIN.route) }
-
-    when (currentScreen){
-        Screens.MAIN.route -> {
-            MainScreen()
-        }
-        Screens.ABOUT.route -> {
-            AboutScreen()
+    val currentScreen by remember { mutableStateOf(Screens.START.route) }
+    Scaffold { paddingValue ->
+        when (currentScreen){
+            Screens.MAIN.route -> {
+                MainScreen()
+            }
+            Screens.ABOUT.route -> {
+                AboutScreen()
+            }
         }
     }
+
 }
