@@ -13,11 +13,6 @@ fun MainScreen(
 
 ){
     Column {
-        TopAppBar(
-            title =
-            stringResource(Res.string.app_name)
-        )
-
         Text("Main Screen")
     }
 }
