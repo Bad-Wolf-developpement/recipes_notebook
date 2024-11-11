@@ -17,14 +17,7 @@ class MainActivity : ComponentActivity() {
         super.onCreate(savedInstanceState)
 
         setContent {
-            Column {
-                TopAppBar(
-                    title =
-                    stringResource(Res.string.app_name)
-                )
-
-                AppScaffold()
-            }
+            App()
         }
     }
 }
