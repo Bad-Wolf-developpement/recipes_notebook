@@ -15,7 +15,12 @@ import androidx.compose.material.rememberScaffoldState
 import androidx.compose.material3.DrawerValue
 import androidx.compose.material3.ModalNavigationDrawer
 import androidx.compose.material3.rememberDrawerState
-import androidx.compose.runtime.*
+import androidx.compose.runtime.Composable
+import androidx.compose.runtime.getValue
+import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.remember
+import androidx.compose.runtime.rememberCoroutineScope
+import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
@@ -43,8 +48,8 @@ fun App() {
 
         Column() {
             TopAppBar(
-                scope = scope,
-                drawerState = drawerState,
+                //scope = scope,
+                //drawerState = drawerState,
                 title = stringResource(
                     Res.string.app_name
                 ),
@@ -65,7 +70,6 @@ fun App() {
                 },
             ) {
                 Content()
-
 
             }
         }
