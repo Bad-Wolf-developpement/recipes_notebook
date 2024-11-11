@@ -21,5 +21,4 @@ actual fun AppScaffold() {
             AboutScreen()
         }
     }
-    Content()
 }
