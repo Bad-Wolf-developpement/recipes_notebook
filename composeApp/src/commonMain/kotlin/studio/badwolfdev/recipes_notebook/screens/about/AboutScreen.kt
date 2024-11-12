@@ -63,6 +63,8 @@ private fun RowView(
 private fun makeItems(): List<Pair<String, String>>{
     val platform = Platform()
 
+    platform.logSystemInfo()
+
      return listOf(
          Pair("Operating System", "${platform.osName}, ${platform.osVersion}"),
          Pair("Device", platform.deviceModel),

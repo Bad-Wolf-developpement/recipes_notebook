@@ -26,7 +26,10 @@ plugins {
     alias(libs.plugins.composeCompiler)
 }
 
+
+
 kotlin {
+
     androidTarget {
         @OptIn(ExperimentalKotlinGradlePluginApi::class)
         compilerOptions {
@@ -80,6 +83,8 @@ kotlin {
 
             implementation(compose.desktop.currentOs)
             implementation(libs.kotlinx.coroutines.swing)
+        }
+        wasmJsMain.dependencies{
         }
     }
 }

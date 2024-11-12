@@ -1,10 +1,11 @@
 package studio.badwolfdev.recipes_notebook
 
-import com.sun.tools.javac.Main
 import java.awt.Toolkit
-import java.io.File
-import java.net.URI
-import java.util.jar.JarFile
+import java.util.logging.Level
+import java.util.logging.Logger
+
+
+private val logger = Logger.getLogger("Recipes Notebook")
 
 @Suppress("EXPECT_ACTUAL_CLASSIFIERS_ARE_IN_BETA_WARNING")
 actual class Platform {
@@ -23,6 +24,10 @@ actual class Platform {
         get()= "Unknown"
 
     actual fun logSystemInfo() {
+        logger.log(
+            Level.FINE,
+            "($osName, $osVersion, $deviceModel, $density, $appVersion)"
+        )
     }
 
 
