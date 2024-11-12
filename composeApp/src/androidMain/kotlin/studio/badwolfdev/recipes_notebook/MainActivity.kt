@@ -6,9 +6,15 @@ import androidx.activity.compose.setContent
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.tooling.preview.Preview
 
+lateinit var AppVersion: String
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+
+        AppVersion = this
+            .packageManager
+            .getPackageInfo(this.packageName, 0)
+            .versionName
 
         setContent {
             App()

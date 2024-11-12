@@ -4,5 +4,7 @@ enum class Screens(
     val route: String
 ){
     MAIN("main"),
-    ABOUT("about")
+    ABOUT("about"),
+    START(ABOUT.route)
+
 }
