@@ -15,6 +15,7 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.unit.dp
 import studio.badwolfdev.recipes_notebook.Platform
 
+
 @Composable
 fun AboutScreen(
 
@@ -71,4 +72,5 @@ private fun makeItems(): List<Pair<String, String>>{
          Pair("Density", platform.density.toString()),
          Pair("App Version", platform.appVersion)
      )
+
 }
