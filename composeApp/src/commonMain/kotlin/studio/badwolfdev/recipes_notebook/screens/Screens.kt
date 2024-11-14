@@ -5,6 +5,6 @@ enum class Screens(
 ){
     MAIN("main"),
     ABOUT("about"),
-    START(ABOUT.route)
+    START(MAIN.route)
 
 }

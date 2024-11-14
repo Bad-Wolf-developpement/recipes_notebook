@@ -2,36 +2,42 @@ package studio.badwolfdev.recipes_notebook.presentation
 
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.fillMaxWidth
-import androidx.compose.material.Icon
-import androidx.compose.material.IconButton
-import androidx.compose.material.Text
-import androidx.compose.material.TopAppBar
-import androidx.compose.material.icons.Icons
-import androidx.compose.material.icons.filled.Add
-import androidx.compose.material.icons.filled.MoreVert
-import androidx.compose.material.icons.filled.Search
+import androidx.compose.material3.ExperimentalMaterial3Api
+import androidx.compose.material3.Icon
+import androidx.compose.material3.IconButton
+import androidx.compose.material3.Text
+import androidx.compose.material3.TopAppBar
+import androidx.compose.material3.TopAppBarDefaults
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.remember
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
-import androidx.compose.ui.unit.dp
 import org.jetbrains.compose.resources.painterResource
 import recipesnotebook.composeapp.generated.resources.Res
 import recipesnotebook.composeapp.generated.resources.ic_filter_list
+import studio.badwolfdev.recipes_notebook.presentation.menus.TopAppBarActionButtons
 
 
+@OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun TopAppBar(
     //scope: CoroutineScope,
     //drawerState: DrawerState,
     title: String,
+    onAboutCallback: () -> Unit,
+    onSettingsCallback: () -> Unit,
     modifier: Modifier = Modifier
 ) {
+    val moreMenuState = remember { mutableStateOf(false) }
+
     TopAppBar(
         modifier = modifier,
-        backgroundColor = Color.LightGray, // TODO use color var for theming
-//contentColor = Color.White, // TODO change this for color var for theming
-        elevation = 4.dp,
+        colors = TopAppBarDefaults
+            .topAppBarColors(
+                containerColor = Color.LightGray
+            ),
         navigationIcon = {
             IconButton(
                 onClick = {
@@ -59,30 +65,10 @@ fun TopAppBar(
             }
         },
         actions = {
-            IconButton(
-                onClick = { /* TODO */ }
-            ){
-                Icon(
-                    imageVector = Icons.Default.Search,
-                    contentDescription = null
+            TopAppBarActionButtons(
+                moreMenuState = moreMenuState,
+                onAboutCallback = onAboutCallback,
                 )
-            }
-            IconButton(
-                onClick = { /* TODO */ }
-            ){
-                Icon(
-                    imageVector = Icons.Default.Add,
-                    contentDescription = null
-                )
-            }
-            IconButton(
-                onClick = { /* TODO */ }
-            ){
-                Icon(
-                    imageVector = Icons.Default.MoreVert,
-                    contentDescription = null
-                )
-            }
         }
     )
 }

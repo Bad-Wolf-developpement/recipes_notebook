@@ -1,5 +1,6 @@
 package studio.badwolfdev.recipes_notebook.screens
 
+import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.padding
 import androidx.compose.material3.Scaffold
@@ -9,21 +10,39 @@ import androidx.navigation.NavHostController
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
+import org.jetbrains.compose.resources.stringResource
+import recipesnotebook.composeapp.generated.resources.Res
+import recipesnotebook.composeapp.generated.resources.app_name
+import studio.badwolfdev.recipes_notebook.presentation.TopAppBar
 import studio.badwolfdev.recipes_notebook.screens.about.AboutScreen
 import studio.badwolfdev.recipes_notebook.screens.main.MainScreen
 
 @Composable
-actual fun AppScaffold() {
-    Scaffold(
+actual fun AppScaffold(
+) {
 
-    ) { paddingValues ->
-        val navController = rememberNavController()
-        AppNavHost(
-            navController = navController,
-            modifier = Modifier
-                .fillMaxSize()
-                .padding(paddingValues)
+    val navController = rememberNavController()
+    Column {
+        TopAppBar(
+        //scope = scope,
+        //drawerState = drawerState,
+            title = stringResource(
+                Res.string.app_name,
+            ),
+            onSettingsCallback = {},
+            onAboutCallback = {
+                navController.navigate(Screens.ABOUT.route)
+            }
         )
+        Scaffold(
+        ) { paddingValues ->
+            AppNavHost(
+                navController = navController,
+                modifier = Modifier
+                    .fillMaxSize()
+                    .padding(paddingValues)
+            )
+        }
     }
 }
 
@@ -41,7 +60,11 @@ fun AppNavHost(
             MainScreen()
         }
         composable(Screens.ABOUT.route){
-            AboutScreen()
+            AboutScreen(
+                onArrowBackCallback = {
+                    navController.popBackStack()
+                }
+            )
         }
     }
 }
