@@ -19,13 +19,6 @@ import studio.badwolfdev.recipes_notebook.screens.AppScaffold
 fun App() {
     MaterialTheme {
         Column() {
-            TopAppBar(
-                //scope = scope,
-                //drawerState = drawerState,
-                title = stringResource(
-                    Res.string.app_name
-                ),
-            )
             AppScaffold()
         }
     }
