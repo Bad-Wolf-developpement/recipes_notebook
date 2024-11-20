@@ -13,9 +13,13 @@ class RecipesViewModel: BaseViewModel() {
             )
         )
 
+    init {
+        getRecipes()
+    }
+
     val recipeState : StateFlow<RecipesState> get() = _recipesState
 
-    fun getRecipes(){
+    private fun getRecipes(){
         scope.launch {
             _recipesState.emit(
                 RecipesState(

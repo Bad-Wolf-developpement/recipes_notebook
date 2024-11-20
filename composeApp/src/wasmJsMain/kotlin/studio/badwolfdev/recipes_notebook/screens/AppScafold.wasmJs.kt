@@ -11,6 +11,7 @@ import androidx.compose.runtime.setValue
 import org.jetbrains.compose.resources.stringResource
 import recipesnotebook.composeapp.generated.resources.Res
 import recipesnotebook.composeapp.generated.resources.app_name
+import studio.badwolfdev.recipes_notebook.data.recipes.RecipesViewModel
 import studio.badwolfdev.recipes_notebook.presentation.TopAppBar
 import studio.badwolfdev.recipes_notebook.screens.about.AboutScreen
 import studio.badwolfdev.recipes_notebook.screens.main.MainScreen
@@ -19,6 +20,7 @@ import studio.badwolfdev.recipes_notebook.screens.main.MainScreen
 actual fun AppScaffold(
 
 ) {
+    val recipesViewModel = RecipesViewModel()
     var currentScreen by remember { mutableStateOf(Screens.START.route) }
     Column {
         TopAppBar(
@@ -35,7 +37,7 @@ actual fun AppScaffold(
         Scaffold { paddingValue ->
             when (currentScreen) {
                 Screens.MAIN.route -> {
-                    MainScreen()
+                    MainScreen(recipesViewModel)
                 }
 
                 Screens.ABOUT.route -> {

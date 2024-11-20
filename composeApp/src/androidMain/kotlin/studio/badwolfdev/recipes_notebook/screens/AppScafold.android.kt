@@ -13,9 +13,12 @@ import androidx.navigation.compose.rememberNavController
 import org.jetbrains.compose.resources.stringResource
 import recipesnotebook.composeapp.generated.resources.Res
 import recipesnotebook.composeapp.generated.resources.app_name
+import studio.badwolfdev.recipes_notebook.data.recipes.RecipesViewModel
 import studio.badwolfdev.recipes_notebook.presentation.TopAppBar
 import studio.badwolfdev.recipes_notebook.screens.about.AboutScreen
 import studio.badwolfdev.recipes_notebook.screens.main.MainScreen
+import androidx.lifecycle.viewmodel.compose.viewModel
+
 
 @Composable
 actual fun AppScaffold(
@@ -51,13 +54,14 @@ fun AppNavHost(
     navController: NavHostController,
     modifier: Modifier = Modifier
 ){
+    val recipesViewModel: RecipesViewModel = viewModel()
     NavHost(
         navController = navController,
         startDestination = Screens.START.route
 
     ){
         composable(Screens.MAIN.route){
-            MainScreen()
+            MainScreen(recipesViewModel)
         }
         composable(Screens.ABOUT.route){
             AboutScreen(
