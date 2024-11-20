@@ -66,8 +66,10 @@ kotlin {
 
             implementation(compose.preview)
             implementation(libs.androidx.activity.compose)
+            implementation(libs.androidx.lifecycle.viewmodel.ktx)
         }
         commonMain.dependencies {
+            implementation(libs.kotlinx.datetime)
             implementation(compose.material3)
             implementation(compose.ui)
             implementation(compose.runtime)
@@ -119,6 +121,7 @@ android {
 dependencies {
     implementation(libs.androidx.navigation.compose)
     implementation(libs.androidx.navigation.runtime.ktx)
+    implementation(libs.places)
     debugImplementation(compose.uiTooling)
 }
 
